@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: ekart-deployment
+  name: ekart:$BUILD_NUMBER
 spec:
   selector:
     matchLabels:
-      app: ekart
+      app: ekart:$BUILD_NUMBER
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: ekart
+        app: ekart:$BUILD_NUMBER
     spec:
       containers:
-        - name: ekart
-          image: shekarsoma493/ekart:8 # Image that will be used to containers in the cluster
+        - name: ekart:$BUILD_NUMBER
+          image: shekarsoma493/ekart:$BUILD_NUMBER
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8070 # The port that the container is running on in the cluster
