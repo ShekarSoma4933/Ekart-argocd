@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: argocd
-          image: shekarsoma493/ekart:15
+          image: shekarsoma493/ekart:18
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8070 # The port that the container is running on in the cluster
